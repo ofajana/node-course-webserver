@@ -20,8 +20,8 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  res.render("maintenance.hbs");
-  //next();
+  //res.render("maintenance.hbs");
+  next();
 });
 app.use(express.static(__dirname + "/public"));
 
@@ -31,6 +31,13 @@ app.get("/", (req, res) => {
   res.render("home.hbs", {
     welcomeMessage: "Welcome to my first Express Webapp",
     pageTitle: "Webapp Index Page"
+  });
+});
+
+app.get("/project", (req, res) => {
+  res.render("project.hbs", {
+    pageTitle: "Heroku Node Project",
+    welcomeMessage: "Hi Welcome to my first heroku project"
   });
 });
 
